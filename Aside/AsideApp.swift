@@ -11,7 +11,7 @@ import SwiftUI
 struct AsideApp: App {
     let persistenceController = PersistanceController.shared
     
-    @State var wantsNewGoal = false
+    @State var showNewGoalSheet = false
     
     
     var df: DataFunctions = DataFunctions()
@@ -24,10 +24,8 @@ struct AsideApp: App {
             }
             
             // New goal sheet for new goal command
-            .sheet(isPresented: $wantsNewGoal) {
-                NewGoalSheet(onClose: {
-                    wantsNewGoal = false
-                }, onFinish: { name, target, icon in
+            .sheet(isPresented: $showNewGoalSheet) {
+                NewGoalSheet(isPresented: $showNewGoalSheet, onFinish: { name, target, icon in
                     Task { await df.newGoal(name: name, target: target, sfIconName: icon) }
                 })
             }
@@ -37,7 +35,7 @@ struct AsideApp: App {
             CommandGroup(replacing: .newItem) {
                 // New goal command (command + n)
                 Button("New goal") {
-                    wantsNewGoal = true
+                    showNewGoalSheet = true
                 }.keyboardShortcut("n", modifiers: [.command])
             }
         }

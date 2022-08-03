@@ -66,9 +66,7 @@ struct ContentView: View {
         }
         // New goal sheet
         .sheet(isPresented: $wantsNewGoal) {
-            NewGoalSheet(onClose: {
-                wantsNewGoal = false
-            }, onFinish: { name, target, icon in
+            NewGoalSheet(isPresented: $wantsNewGoal, onFinish: { name, target, icon in
                 Task { await newGoal(name: name, target: target, sfIconName: icon) }
             })
         }

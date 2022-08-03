@@ -103,9 +103,7 @@ struct GoalView: View {
         // Edit sheet
         .sheet(isPresented: $editSheet) {
             EditGoalSheet(
-                onClose: {
-                    editSheet = false
-                },
+                isPresented: $editSheet,
                 onFinish: { name, target, icon in
                     // Update goal
                     goal.name = name

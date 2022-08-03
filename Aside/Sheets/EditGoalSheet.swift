@@ -11,8 +11,8 @@ import Combine
 
 struct EditGoalSheet: View {
     
-    // Called when the sheet is cancelled
-    var onClose: () -> ()
+    // Keep track of if the sheet should be shown
+    @Binding var isPresented: Bool
     
     // Called when the sheet is done
     var onFinish: (String, Float, String) -> ()
@@ -65,10 +65,10 @@ struct EditGoalSheet: View {
             Divider()
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             HStack {
-                Button("Close", role: .cancel) { onClose() }
+                Button("Close", role: .cancel) { isPresented = false }
                 Button(finish) {
                     onFinish(name, target, icon)
-                    onClose()
+                    isPresented = false
                 }
                 .disabled(name.isEmpty || target == 0)
                 .tint(.accentColor)
