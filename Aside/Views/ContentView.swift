@@ -43,6 +43,26 @@ struct ContentView: View {
                     }
                 }
             }
+            VStack {
+                Image(systemName: "sterlingsign.square")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.accentColor)
+                    .padding()
+                Group {
+                    Text("Welcome to aside")
+                        .font(.title)
+                        .bold()
+                    Text("The best way to manage your money!")
+                        .foregroundColor(.secondary)
+                }
+                HStack {
+                    Button("Create a new goal") {
+                        wantsNewGoal = true
+                    }
+                    Text("or select one from the side")
+                }
+            }
         }
         // New goal sheet
         .sheet(isPresented: $wantsNewGoal) {
