@@ -25,6 +25,7 @@
 		044D492A2899819C00FBD0AD /* PersistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D49292899819C00FBD0AD /* PersistanceController.swift */; };
 		044D492C28998B5900FBD0AD /* NewTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */; };
 		047A2B9A289AB731003D22A0 /* DataDunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A2B99289AB731003D22A0 /* DataDunctions.swift */; };
+		04DB9BCA289ADD0100E37D52 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB9BC9289ADD0100E37D52 /* Icons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		044D49292899819C00FBD0AD /* PersistanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceController.swift; sourceTree = "<group>"; };
 		044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionSheet.swift; sourceTree = "<group>"; };
 		047A2B99289AB731003D22A0 /* DataDunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDunctions.swift; sourceTree = "<group>"; };
+		04DB9BC9289ADD0100E37D52 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				04312F9F289878A900A5A341 /* Aside.entitlements */,
 				04312F9C289878A900A5A341 /* Preview Content */,
 				04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */,
+				04DB9BC9289ADD0100E37D52 /* Icons.swift */,
 			);
 			path = Aside;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DB9BCA289ADD0100E37D52 /* Icons.swift in Sources */,
 				043F93E1289AABDB00EEC550 /* EditGoalSheet.swift in Sources */,
 				04312F99289878A800A5A341 /* ContentView.swift in Sources */,
 				044D492528997F9E00FBD0AD /* Transaction+CoreDataProperties.swift in Sources */,

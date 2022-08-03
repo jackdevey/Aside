@@ -55,12 +55,7 @@ struct EditGoalSheet: View {
             Form {
                 TextField("Name:", text: $name)
                 TextField("Target:", value: $target, formatter: formatter)
-                Picker("Icon:", selection: $icon) {
-                    Image(systemName: "square").tag("square")
-                    Image(systemName: "iphone").tag("iphone")
-                    Image(systemName: "house").tag("house")
-                    Image(systemName: "headphones").tag("headphones")
-                }
+                IconPicker(icon: $icon)
             }
             Divider()
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
