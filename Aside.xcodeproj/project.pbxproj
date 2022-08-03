@@ -14,6 +14,16 @@
 		04312FA9289878A900A5A341 /* AsideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FA8289878A900A5A341 /* AsideTests.swift */; };
 		04312FB3289878A900A5A341 /* AsideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB2289878A900A5A341 /* AsideUITests.swift */; };
 		04312FB5289878A900A5A341 /* AsideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */; };
+		04312FC2289888D400A5A341 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC1289888D400A5A341 /* GoalView.swift */; };
+		04312FCA28988BEE00A5A341 /* Aside.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */; };
+		043F93E1289AABDB00EEC550 /* EditGoalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F93E0289AABDB00EEC550 /* EditGoalSheet.swift */; };
+		044D49182898F23D00FBD0AD /* NewGoalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D49172898F23D00FBD0AD /* NewGoalSheet.swift */; };
+		044D492428997F9E00FBD0AD /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492028997F9E00FBD0AD /* Transaction+CoreDataClass.swift */; };
+		044D492528997F9E00FBD0AD /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492128997F9E00FBD0AD /* Transaction+CoreDataProperties.swift */; };
+		044D492628997F9E00FBD0AD /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492228997F9E00FBD0AD /* Goal+CoreDataClass.swift */; };
+		044D492728997F9E00FBD0AD /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492328997F9E00FBD0AD /* Goal+CoreDataProperties.swift */; };
+		044D492A2899819C00FBD0AD /* PersistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D49292899819C00FBD0AD /* PersistanceController.swift */; };
+		044D492C28998B5900FBD0AD /* NewTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +55,16 @@
 		04312FAE289878A900A5A341 /* AsideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04312FB2289878A900A5A341 /* AsideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITests.swift; sourceTree = "<group>"; };
 		04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		04312FC1289888D400A5A341 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AsideData.xcdatamodel; sourceTree = "<group>"; };
+		043F93E0289AABDB00EEC550 /* EditGoalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalSheet.swift; sourceTree = "<group>"; };
+		044D49172898F23D00FBD0AD /* NewGoalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalSheet.swift; sourceTree = "<group>"; };
+		044D492028997F9E00FBD0AD /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		044D492128997F9E00FBD0AD /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		044D492228997F9E00FBD0AD /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
+		044D492328997F9E00FBD0AD /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		044D49292899819C00FBD0AD /* PersistanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceController.swift; sourceTree = "<group>"; };
+		044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +115,18 @@
 		04312F95289878A800A5A341 /* Aside */ = {
 			isa = PBXGroup;
 			children = (
+				044D49292899819C00FBD0AD /* PersistanceController.swift */,
+				044D492828997FA900FBD0AD /* CoreData */,
 				04312F96289878A800A5A341 /* AsideApp.swift */,
 				04312F98289878A800A5A341 /* ContentView.swift */,
 				04312F9A289878A900A5A341 /* Assets.xcassets */,
 				04312F9F289878A900A5A341 /* Aside.entitlements */,
 				04312F9C289878A900A5A341 /* Preview Content */,
+				04312FC1289888D400A5A341 /* GoalView.swift */,
+				04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */,
+				044D49172898F23D00FBD0AD /* NewGoalSheet.swift */,
+				044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */,
+				043F93E0289AABDB00EEC550 /* EditGoalSheet.swift */,
 			);
 			path = Aside;
 			sourceTree = "<group>";
@@ -127,6 +154,17 @@
 				04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */,
 			);
 			path = AsideUITests;
+			sourceTree = "<group>";
+		};
+		044D492828997FA900FBD0AD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				044D492028997F9E00FBD0AD /* Transaction+CoreDataClass.swift */,
+				044D492128997F9E00FBD0AD /* Transaction+CoreDataProperties.swift */,
+				044D492228997F9E00FBD0AD /* Goal+CoreDataClass.swift */,
+				044D492328997F9E00FBD0AD /* Goal+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +297,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043F93E1289AABDB00EEC550 /* EditGoalSheet.swift in Sources */,
 				04312F99289878A800A5A341 /* ContentView.swift in Sources */,
+				044D492528997F9E00FBD0AD /* Transaction+CoreDataProperties.swift in Sources */,
+				044D492628997F9E00FBD0AD /* Goal+CoreDataClass.swift in Sources */,
+				044D49182898F23D00FBD0AD /* NewGoalSheet.swift in Sources */,
+				044D492C28998B5900FBD0AD /* NewTransactionSheet.swift in Sources */,
+				04312FC2289888D400A5A341 /* GoalView.swift in Sources */,
+				044D492A2899819C00FBD0AD /* PersistanceController.swift in Sources */,
+				044D492728997F9E00FBD0AD /* Goal+CoreDataProperties.swift in Sources */,
 				04312F97289878A800A5A341 /* AsideApp.swift in Sources */,
+				044D492428997F9E00FBD0AD /* Transaction+CoreDataClass.swift in Sources */,
+				04312FCA28988BEE00A5A341 /* Aside.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +624,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */,
+			);
+			currentVersion = 04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */;
+			path = Aside.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 04312F8B289878A800A5A341 /* Project object */;
 }
