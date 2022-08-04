@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G72" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Goal" representedClassName=".Goal" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="saved" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -18,7 +19,7 @@
         <relationship name="forGoal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="transactions" inverseEntity="Goal"/>
     </entity>
     <elements>
-        <element name="Goal" positionX="-54" positionY="-9" width="128" height="148"/>
+        <element name="Goal" positionX="-54" positionY="-9" width="128" height="149"/>
         <element name="Transaction" positionX="213.5" positionY="19.8203125" width="128" height="133"/>
     </elements>
 </model>

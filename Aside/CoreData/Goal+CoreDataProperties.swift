@@ -23,6 +23,7 @@ extension Goal {
     @NSManaged public var target: Float
     @NSManaged public var saved: Float
     @NSManaged public var transactions: NSOrderedSet?
+    @NSManaged public var date: Date?
     
     public var transactionLog: [Transaction] {
         
@@ -56,6 +57,10 @@ extension Goal {
     
     public var percentage: Float {
         return (progress / target)
+    }
+    
+    public var wDate: Date {
+        return date ?? Date.init(timeIntervalSince1970: 0)
     }
 
 

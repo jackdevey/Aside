@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
         
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)])
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)])
     var goals: FetchedResults<Goal>
     
     @State var wantsNewGoal = false
@@ -81,7 +81,7 @@ struct ContentView: View {
             goal.target = target
             goal.saved = 0
             goal.currency = "£"
-            
+            goal.date = Date.now
         })
         try? PersistanceController.shared.saveContext()
     }
@@ -93,10 +93,7 @@ struct ContentView: View {
         }
     }
     
-    private func toggleSidebar() { // 2
-        #if os(iOS)
-        #else
+    private func toggleSidebar() {
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
-        #endif
     }
 }
