@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0423CD7D2E0741E200FA7F1E /* FiscalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423CD7C2E0741DF00FA7F1E /* FiscalTransaction.swift */; };
+		0423CD7F2E074B8600FA7F1E /* AddEditGoalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423CD7E2E074B8200FA7F1E /* AddEditGoalSheet.swift */; };
+		0423CD812E075AEB00FA7F1E /* AddEditTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423CD802E075AE500FA7F1E /* AddEditTransactionSheet.swift */; };
+		0423CD842E07668A00FA7F1E /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 0423CD832E07668A00FA7F1E /* SymbolPicker */; };
 		04312F97289878A800A5A341 /* AsideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312F96289878A800A5A341 /* AsideApp.swift */; };
 		04312F99289878A800A5A341 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312F98289878A800A5A341 /* ContentView.swift */; };
 		04312F9B289878A900A5A341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04312F9A289878A900A5A341 /* Assets.xcassets */; };
@@ -16,15 +20,7 @@
 		04312FB5289878A900A5A341 /* AsideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */; };
 		04312FC2289888D400A5A341 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC1289888D400A5A341 /* GoalView.swift */; };
 		04312FCA28988BEE00A5A341 /* Aside.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */; };
-		043F93E1289AABDB00EEC550 /* EditGoalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F93E0289AABDB00EEC550 /* EditGoalSheet.swift */; };
-		044D49182898F23D00FBD0AD /* NewGoalSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D49172898F23D00FBD0AD /* NewGoalSheet.swift */; };
-		044D492428997F9E00FBD0AD /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492028997F9E00FBD0AD /* Transaction+CoreDataClass.swift */; };
-		044D492528997F9E00FBD0AD /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492128997F9E00FBD0AD /* Transaction+CoreDataProperties.swift */; };
-		044D492628997F9E00FBD0AD /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492228997F9E00FBD0AD /* Goal+CoreDataClass.swift */; };
-		044D492728997F9E00FBD0AD /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492328997F9E00FBD0AD /* Goal+CoreDataProperties.swift */; };
-		044D492A2899819C00FBD0AD /* PersistanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D49292899819C00FBD0AD /* PersistanceController.swift */; };
-		044D492C28998B5900FBD0AD /* NewTransactionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */; };
-		047A2B9A289AB731003D22A0 /* DataDunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A2B99289AB731003D22A0 /* DataDunctions.swift */; };
+		044D492628997F9E00FBD0AD /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492228997F9E00FBD0AD /* Goal.swift */; };
 		04DB9BCA289ADD0100E37D52 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB9BC9289ADD0100E37D52 /* Icons.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0423CD7B2E070EC500FA7F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0423CD7C2E0741DF00FA7F1E /* FiscalTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiscalTransaction.swift; sourceTree = "<group>"; };
+		0423CD7E2E074B8200FA7F1E /* AddEditGoalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditGoalSheet.swift; sourceTree = "<group>"; };
+		0423CD802E075AE500FA7F1E /* AddEditTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTransactionSheet.swift; sourceTree = "<group>"; };
 		04312F93289878A800A5A341 /* Aside.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aside.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04312F96289878A800A5A341 /* AsideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideApp.swift; sourceTree = "<group>"; };
 		04312F98289878A800A5A341 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,15 +59,7 @@
 		04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		04312FC1289888D400A5A341 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AsideData.xcdatamodel; sourceTree = "<group>"; };
-		043F93E0289AABDB00EEC550 /* EditGoalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalSheet.swift; sourceTree = "<group>"; };
-		044D49172898F23D00FBD0AD /* NewGoalSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalSheet.swift; sourceTree = "<group>"; };
-		044D492028997F9E00FBD0AD /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
-		044D492128997F9E00FBD0AD /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		044D492228997F9E00FBD0AD /* Goal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataClass.swift"; sourceTree = "<group>"; };
-		044D492328997F9E00FBD0AD /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		044D49292899819C00FBD0AD /* PersistanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceController.swift; sourceTree = "<group>"; };
-		044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionSheet.swift; sourceTree = "<group>"; };
-		047A2B99289AB731003D22A0 /* DataDunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDunctions.swift; sourceTree = "<group>"; };
+		044D492228997F9E00FBD0AD /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		04DB9BC9289ADD0100E37D52 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0423CD842E07668A00FA7F1E /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,9 +112,10 @@
 		04312F95289878A800A5A341 /* Aside */ = {
 			isa = PBXGroup;
 			children = (
+				0423CD7B2E070EC500FA7F1E /* Info.plist */,
 				047A2B95289AB580003D22A0 /* Views */,
 				047A2B94289AB568003D22A0 /* Sheets */,
-				044D492828997FA900FBD0AD /* CoreData */,
+				044D492828997FA900FBD0AD /* Models */,
 				04312F96289878A800A5A341 /* AsideApp.swift */,
 				04312F9A289878A900A5A341 /* Assets.xcassets */,
 				04312F9F289878A900A5A341 /* Aside.entitlements */,
@@ -157,25 +151,20 @@
 			path = AsideUITests;
 			sourceTree = "<group>";
 		};
-		044D492828997FA900FBD0AD /* CoreData */ = {
+		044D492828997FA900FBD0AD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				044D49292899819C00FBD0AD /* PersistanceController.swift */,
-				044D492028997F9E00FBD0AD /* Transaction+CoreDataClass.swift */,
-				044D492128997F9E00FBD0AD /* Transaction+CoreDataProperties.swift */,
-				044D492228997F9E00FBD0AD /* Goal+CoreDataClass.swift */,
-				044D492328997F9E00FBD0AD /* Goal+CoreDataProperties.swift */,
-				047A2B99289AB731003D22A0 /* DataDunctions.swift */,
+				0423CD7C2E0741DF00FA7F1E /* FiscalTransaction.swift */,
+				044D492228997F9E00FBD0AD /* Goal.swift */,
 			);
-			path = CoreData;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		047A2B94289AB568003D22A0 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
-				044D49172898F23D00FBD0AD /* NewGoalSheet.swift */,
-				044D492B28998B5900FBD0AD /* NewTransactionSheet.swift */,
-				043F93E0289AABDB00EEC550 /* EditGoalSheet.swift */,
+				0423CD802E075AE500FA7F1E /* AddEditTransactionSheet.swift */,
+				0423CD7E2E074B8200FA7F1E /* AddEditGoalSheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -277,6 +266,9 @@
 				Base,
 			);
 			mainGroup = 04312F8A289878A800A5A341;
+			packageReferences = (
+				0423CD822E07668A00FA7F1E /* XCRemoteSwiftPackageReference "SymbolPicker" */,
+			);
 			productRefGroup = 04312F94289878A800A5A341 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -319,19 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0423CD7D2E0741E200FA7F1E /* FiscalTransaction.swift in Sources */,
 				04DB9BCA289ADD0100E37D52 /* Icons.swift in Sources */,
-				043F93E1289AABDB00EEC550 /* EditGoalSheet.swift in Sources */,
+				0423CD7F2E074B8600FA7F1E /* AddEditGoalSheet.swift in Sources */,
 				04312F99289878A800A5A341 /* ContentView.swift in Sources */,
-				044D492528997F9E00FBD0AD /* Transaction+CoreDataProperties.swift in Sources */,
-				044D492628997F9E00FBD0AD /* Goal+CoreDataClass.swift in Sources */,
-				047A2B9A289AB731003D22A0 /* DataDunctions.swift in Sources */,
-				044D49182898F23D00FBD0AD /* NewGoalSheet.swift in Sources */,
-				044D492C28998B5900FBD0AD /* NewTransactionSheet.swift in Sources */,
+				044D492628997F9E00FBD0AD /* Goal.swift in Sources */,
 				04312FC2289888D400A5A341 /* GoalView.swift in Sources */,
-				044D492A2899819C00FBD0AD /* PersistanceController.swift in Sources */,
-				044D492728997F9E00FBD0AD /* Goal+CoreDataProperties.swift in Sources */,
 				04312F97289878A800A5A341 /* AsideApp.swift in Sources */,
-				044D492428997F9E00FBD0AD /* Transaction+CoreDataClass.swift in Sources */,
+				0423CD812E075AEB00FA7F1E /* AddEditTransactionSheet.swift in Sources */,
 				04312FCA28988BEE00A5A341 /* Aside.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,22 +477,26 @@
 				CODE_SIGN_ENTITLEMENTS = Aside/Aside.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Aside/Preview Content\"";
 				DEVELOPMENT_TEAM = G2D5W96ZY7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Aside/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Aside;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2025 Jack Devey";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.jw3.Aside;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -519,22 +510,26 @@
 				CODE_SIGN_ENTITLEMENTS = Aside/Aside.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Aside/Preview Content\"";
 				DEVELOPMENT_TEAM = G2D5W96ZY7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Aside/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Aside;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2025 Jack Devey";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.jw3.Aside;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -652,6 +647,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0423CD822E07668A00FA7F1E /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xnth97/SymbolPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0423CD832E07668A00FA7F1E /* SymbolPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0423CD822E07668A00FA7F1E /* XCRemoteSwiftPackageReference "SymbolPicker" */;
+			productName = SymbolPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */ = {
