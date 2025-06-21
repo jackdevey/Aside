@@ -14,6 +14,8 @@ struct GoalView: View {
     var goal: Goal
     @State var search: String = ""
     
+    @StateObject private var settings = SettingsManager.shared
+    
     @State private var deleteAlert = false
     @State private var editSheet = false
     @State private var newTransactionSheet = false
@@ -47,7 +49,10 @@ struct GoalView: View {
         // Set title & subtitle
         .navigationTitle(goal.name)
         .navigationSubtitle(
-            "\(String(format: "%.0f", goal.percentage))% - £\(String(format: "%.2f", goal.target - goal.saved)) left"
+            """
+            \(String(format: "%.0f", goal.percentage))% \
+            - \(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left
+            """
         )
         // Add search through transactions
         .toolbar {

@@ -22,11 +22,20 @@ struct ContentView: View {
         
     var body: some View {
         NavigationSplitView {
-            List(goals) { goal in
+            List {
                 NavigationLink {
-                    GoalView(goal: goal, deleteFunc: deleteGoal)
+                    
                 } label: {
-                    Label(goal.name, systemImage: goal.sfIcon)
+                    Label("Transactions", systemImage: "line.3.horizontal")
+                }
+                Section(header: Text("Goals")) {
+                    ForEach(goals){ goal in
+                        NavigationLink {
+                            GoalView(goal: goal, deleteFunc: deleteGoal)
+                        } label: {
+                            Label(goal.name, systemImage: goal.sfIcon)
+                        }
+                    }
                 }
             }
             .frame(minWidth: 190)

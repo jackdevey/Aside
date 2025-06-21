@@ -17,5 +17,9 @@ struct AsideApp: App {
                 .frame(minWidth: 800, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
         }
         .modelContainer(for: [FiscalTransaction.self, Goal.self])
+        
+        Settings {
+            SettingsView()
+        }
     }
 }
