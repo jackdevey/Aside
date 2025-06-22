@@ -66,4 +66,5 @@ enum FiscalTransactionCategory: String, CaseIterable, Identifiable, Codable {
             Label("Other", systemImage: "questionmark.circle.fill")
         }
     }
+
 }

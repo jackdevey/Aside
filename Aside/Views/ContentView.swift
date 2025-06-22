@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .frame(minWidth: 190)
+            .navigationTitle("Goals")
             .toolbar {
                 // New goal icon
                 ToolbarItem(placement: .primaryAction) {
@@ -65,6 +65,9 @@ struct ContentView: View {
         // New goal sheet
         .sheet(isPresented: $wantsNewGoal) {
             AddEditGoalSheet()
+            #if os(iOS)
+                .presentationDetents([.medium, .large])
+            #endif
         }
     }
     

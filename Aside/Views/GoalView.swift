@@ -20,6 +20,8 @@ struct GoalView: View {
     @State private var editSheet = false
     @State private var newTransactionSheet = false
     
+    @State private var transactionToEdit: FiscalTransaction? = nil
+    
     var deleteFunc: (Goal) -> ()
     
     @State var transactionSelection: FiscalTransaction.ID?
@@ -27,8 +29,7 @@ struct GoalView: View {
         
     var dateFormatter: DateFormatter = DateFormatter()
     
-    var body: some View {
-        // Transaction log table
+    var table: some View {
         Table(goal.transactions, selection: $transactionSelection) {
             // Amount column
             TableColumn("Amount") { transaction in
@@ -46,16 +47,97 @@ struct GoalView: View {
                 Text(transaction.date, format: .dateTime)
             }
         }
+    }
+    
+    var listWithHeader: some View {
+        List {
+            VStack(alignment: .leading) {
+                // Goal name & icon
+                HStack {
+                    Image(systemName: goal.sfIcon)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 24)
+                        .foregroundStyle(.accent)
+                    Text(goal.name)
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                    // Show menu
+                    Menu {
+                        Button(action: { editSheet = true }) {
+                            Label("Edit", systemImage: "square.and.pencil")
+                        }
+                        Button(action: { deleteAlert = true }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    } label: {
+                        Label("Options", systemImage: "ellipsis.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .labelStyle(.iconOnly)
+                            .font(.title2)
+                    }
+                }
+                // Progress view
+                ProgressView(value: goal.saved, total: goal.target) {
+                    Text("\(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left")
+                    .foregroundStyle(.secondary)
+                }
+                .padding(.top, 5)
+            }
+            .padding([.top, .bottom], 5)
+            Section {
+                ForEach(goal.transactions) { transaction in
+                    HStack {
+                        // Show only category icon
+                        transaction.category.labelView()
+                            .labelStyle(.iconOnly)
+                            .font(.system(size: 24))
+                            .foregroundStyle(.accent)
+                        // Amount
+                        Text(String(format: "%@%.2f", transaction.amount >= 0 ? "+" : "-", abs(transaction.amount)))
+                            .monospacedDigit()
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            // Name
+                            Text(transaction.name)
+                            // Date
+                            Text(transaction.date, format: .dateTime)
+                                .foregroundStyle(.secondary)
+                                .font(.caption)
+                        }
+                    }
+                    // Add edit button on swipe
+                    .swipeActions {
+                        Button {
+                            transactionToEdit = transaction
+                        } label: {
+                            Label("Edit Transaction", systemImage: "pencil")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    var body: some View {
+        Group {
+            #if os(macOS)
+            table
+            #else
+            listWithHeader
+            #endif
+        }
         // Set title & subtitle
         .navigationTitle(goal.name)
-        .navigationSubtitle(
-            """
-            \(String(format: "%.0f", goal.percentage))% \
-            - \(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left
-            """
-        )
+        #if os(macOS)
+        .navigationSubtitle("\(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left")
+        #elseif os(iOS)
+        .navigationBarTitleDisplayMode(.inline)
+        #endif
         // Add search through transactions
         .toolbar {
+            #if os(macOS)
             ToolbarItem(placement: .navigation) {
                 HStack(spacing: 10) {
                     ZStack {
@@ -75,12 +157,14 @@ struct GoalView: View {
                         .foregroundColor(.secondary)
                 }
             }
+            #endif
             // Add transaction button
             ToolbarItem(placement: .primaryAction) {
                 Button(action: { newTransactionSheet = true }) {
                     Label("New transaction", systemImage: "text.badge.plus")
                 }
             }
+            #if os(macOS)
             // Edit goal button
             ToolbarItem(placement: .primaryAction) {
                 Button(action: { editSheet = true }) {
@@ -93,6 +177,7 @@ struct GoalView: View {
                     Label("Delete", systemImage: "trash")
                 }
             }
+            #endif
         }
         //.searchable(text: $search, prompt: "Search transactions")
         // Goal delete alert
@@ -113,10 +198,23 @@ struct GoalView: View {
         // Edit sheet
         .sheet(isPresented: $editSheet) {
             AddEditGoalSheet(goalToEdit: goal)
+            #if os(iOS)
+                .presentationDetents([.medium, .large])
+            #endif
         }
         // New transaction sheet
         .sheet(isPresented: $newTransactionSheet) {
             AddEditTransactionSheet(goal: goal)
+            #if os(iOS)
+                .presentationDetents([.medium, .large])
+            #endif
+        }
+        // Edit transaction sheet
+        .sheet(item: $transactionToEdit) { transaction in
+            AddEditTransactionSheet(goal: goal, transactionToEdit: transaction)
+            #if os(iOS)
+                .presentationDetents([.medium, .large])
+            #endif
         }
     }
 }
