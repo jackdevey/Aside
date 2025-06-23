@@ -52,8 +52,6 @@ struct ContentView: View {
                             HStack(spacing: 20) {
                                 Label(goal.name, systemImage: goal.sfIcon)
                                 Spacer()
-                                Text("\(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left")
-                                    .foregroundStyle(.secondary)
                                 goal.progressCircle()
                                     .padding(.trailing, 10)
                             }
