@@ -87,32 +87,38 @@ struct GoalView: View {
             }
             .padding([.top, .bottom], 5)
             Section {
-                ForEach(goal.transactions) { transaction in
-                    HStack {
-                        // Show only category icon
-                        transaction.category.labelView()
-                            .labelStyle(.iconOnly)
-                            .font(.system(size: 24))
-                            .foregroundStyle(.accent)
-                        // Amount
-                        Text(String(format: "%@%.2f", transaction.amount >= 0 ? "+" : "-", abs(transaction.amount)))
-                            .monospacedDigit()
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            // Name
-                            Text(transaction.name)
-                            // Date
-                            Text(transaction.date, format: .dateTime)
-                                .foregroundStyle(.secondary)
-                                .font(.caption)
+                if goal.transactions.isEmpty {
+                    ContentUnavailableView("No transactions",
+                        systemImage: "text.insert",
+                        description: Text("Tap the ") + Text(Image(systemName: "text.badge.plus")) + Text(" icon to create a new transaction for this goal"))
+                } else {
+                    ForEach(goal.transactions) { transaction in
+                        HStack {
+                            // Show only category icon
+                            transaction.category.labelView()
+                                .labelStyle(.iconOnly)
+                                .font(.system(size: 24))
+                                .foregroundStyle(.accent)
+                            // Amount
+                            Text(String(format: "%@%.2f", transaction.amount >= 0 ? "+" : "-", abs(transaction.amount)))
+                                .monospacedDigit()
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                // Name
+                                Text(transaction.name)
+                                // Date
+                                Text(transaction.date, format: .dateTime)
+                                    .foregroundStyle(.secondary)
+                                    .font(.caption)
+                            }
                         }
-                    }
-                    // Add edit button on swipe
-                    .swipeActions {
-                        Button {
-                            transactionToEdit = transaction
-                        } label: {
-                            Label("Edit Transaction", systemImage: "pencil")
+                        // Add edit button on swipe
+                        .swipeActions {
+                            Button {
+                                transactionToEdit = transaction
+                            } label: {
+                                Label("Edit Transaction", systemImage: "pencil")
+                            }
                         }
                     }
                 }

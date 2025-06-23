@@ -12,6 +12,8 @@ struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
     
+    @StateObject private var settings = SettingsManager.shared
+    
     @Query()
     var goals: [Goal]
     
@@ -19,18 +21,48 @@ struct ContentView: View {
     @State var name = ""
     
     @State var search: String = ""
+    
+    @State var selection: Goal?
         
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(goals){ goal in
-                    NavigationLink {
-                        GoalView(goal: goal, deleteFunc: deleteGoal)
-                    } label: {
-                        Label(goal.name, systemImage: goal.sfIcon)
+            List(selection: $selection) {
+                if goals.isEmpty {
+                    // Show content not available
+                    #if os(macOS)
+                    ContentUnavailableView("No goals",
+                        systemImage: "target",
+                        description: Text("Use the ") + Text(Image(systemName: "plus")) + Text(" button")
+                    )
+                    .symbolVariant(.slash)
+                    #else
+                    ContentUnavailableView("No goals",
+                        systemImage: "target",
+                        description: Text("Tap the ") + Text(Image(systemName: "plus")) + Text(" icon to create a new goal")
+                    )
+                    .symbolVariant(.slash)
+                    #endif
+                } else {
+                    // List goals
+                    ForEach(goals){ goal in
+                        NavigationLink(value: goal) {
+                            #if os(macOS)
+                            Label(goal.name, systemImage: goal.sfIcon)
+                            #else
+                            HStack(spacing: 20) {
+                                Label(goal.name, systemImage: goal.sfIcon)
+                                Spacer()
+                                Text("\(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left")
+                                    .foregroundStyle(.secondary)
+                                goal.progressCircle()
+                                    .padding(.trailing, 10)
+                            }
+                            #endif
+                        }
                     }
                 }
             }
+            .navigationSplitViewColumnWidth(min: 180, ideal: 220, max: 240)
             .navigationTitle("Goals")
             .toolbar {
                 // New goal icon
@@ -41,24 +73,30 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            VStack {
-                Image(systemName: "sterlingsign.square")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.accentColor)
-                    .padding()
-                Group {
-                    Text("Welcome to aside")
-                        .font(.title)
-                        .bold()
-                    Text("The best way to manage your money!")
-                        .foregroundColor(.secondary)
-                }
-                HStack {
-                    Button("Create a new goal") {
-                        wantsNewGoal = true
+            // Show the GoalView for the goal
+            if let goal = selection {
+                GoalView(goal: goal, deleteFunc: deleteGoal)
+            } else {
+                VStack {
+                    Image("icon")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 50)
+                        .foregroundColor(.accentColor)
+                        .padding()
+                    Group {
+                        Text("Welcome to aside")
+                            .font(.title)
+                            .bold()
+                        Text("The best way to manage your money!")
+                            .foregroundColor(.secondary)
                     }
-                    Text("or select one from the side")
+                    HStack {
+                        Button("Create a new goal") {
+                            wantsNewGoal = true
+                        }
+                        Text("or select one from the side")
+                    }
                 }
             }
         }
@@ -72,9 +110,8 @@ struct ContentView: View {
     }
     
     private func deleteGoal(goal: Goal) {
-        Task {
-            modelContext.delete(goal)
-            try? modelContext.save()
-        }
+        modelContext.delete(goal)
+        try? modelContext.save()
+        selection = nil
     }
 }

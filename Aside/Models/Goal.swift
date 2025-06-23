@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import SwiftData
+import SwiftUI
 
 @Model
 class Goal: Identifiable {
@@ -20,7 +21,7 @@ class Goal: Identifiable {
     var due: Date?
     var created: Date
     
-    @Relationship(inverse: \FiscalTransaction.goal) var transactions: [FiscalTransaction]
+    @Relationship(deleteRule: .cascade) var transactions: [FiscalTransaction]
     
     init(name: String, sfIcon: String, target: Float, due: Date? = nil) {
         self.id = UUID()
@@ -46,4 +47,17 @@ class Goal: Identifiable {
         return (saved / target)
     }
     
+    @ViewBuilder
+    func progressCircle() -> some View {
+        ZStack {
+            Circle()
+                .stroke(.tertiary, lineWidth: 3)
+                .frame(width: 18, height: 18)
+            Circle()
+                .trim(from: 0.0, to: Double(percentage))
+                .stroke(.accent, lineWidth: 3)
+                .frame(width: 18, height: 18)
+                .rotationEffect(Angle(degrees: -90))
+        }
+    }
 }

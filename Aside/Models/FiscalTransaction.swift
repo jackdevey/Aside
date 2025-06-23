@@ -17,6 +17,8 @@ class FiscalTransaction: Identifiable {
     var name: String
     var category: FiscalTransactionCategory
     var date: Date
+    
+    @Relationship(inverse: \Goal.transactions)
     var goal: Goal
     
     init(amount: Float, name: String, category: FiscalTransactionCategory, goal: Goal) {
