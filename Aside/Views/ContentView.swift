@@ -73,7 +73,7 @@ struct ContentView: View {
         } detail: {
             // Show the GoalView for the goal
             if let goal = selection {
-                GoalView(goal: goal, deleteFunc: deleteGoal)
+                GoalView(goal: goal)
             } else {
                 VStack {
                     Image("icon")
@@ -107,9 +107,4 @@ struct ContentView: View {
         }
     }
     
-    private func deleteGoal(goal: Goal) {
-        modelContext.delete(goal)
-        try? modelContext.save()
-        selection = nil
-    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GoalView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.modelContext) private var modelContext
     
     var goal: Goal
     @State var search: String = ""
@@ -21,9 +21,7 @@ struct GoalView: View {
     @State private var newTransactionSheet = false
     
     @State private var transactionToEdit: FiscalTransaction? = nil
-    
-    var deleteFunc: (Goal) -> ()
-    
+        
     @State var transactionSelection: FiscalTransaction.ID?
     @State private var transactionSorting = [KeyPathComparator(\FiscalTransaction.date, order: .reverse)]
         
@@ -33,7 +31,7 @@ struct GoalView: View {
         Table(goal.transactions, selection: $transactionSelection) {
             // Amount column
             TableColumn("Amount") { transaction in
-                Text(String(format: "%@%.2f", transaction.amount >= 0 ? "+" : "-", abs(transaction.amount)))
+                Text(transaction.amount, format: .currency(code: settings.currencyCode))
                     .monospacedDigit()
             }
             // Name column
@@ -100,7 +98,7 @@ struct GoalView: View {
                                 .font(.system(size: 24))
                                 .foregroundStyle(.accent)
                             // Amount
-                            Text(String(format: "%@%.2f", transaction.amount >= 0 ? "+" : "-", abs(transaction.amount)))
+                            Text(transaction.amount, format: .currency(code: settings.currencyCode))
                                 .monospacedDigit()
                             Spacer()
                             VStack(alignment: .trailing) {
@@ -193,7 +191,10 @@ struct GoalView: View {
                 message: Text("You cannot undo this later, '\(goal.name)' will be lost forever!"),
                 primaryButton: .default(
                     Text("Delete"),
-                    action: { deleteFunc(goal) }
+                    action: {
+                        modelContext.delete(goal)
+                        try? modelContext.save()
+                    }
                 ),
                 secondaryButton: .cancel(
                     Text("Cancel"),

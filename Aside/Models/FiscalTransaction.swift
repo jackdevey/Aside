@@ -12,22 +12,24 @@ import SwiftUI
 @Model
 class FiscalTransaction: Identifiable {
     
-    var id: UUID
-    var amount: Float
-    var name: String
-    var category: FiscalTransactionCategory
-    var date: Date
+    var id: UUID = UUID()
+    var amount: Float = 0.0
+    var name: String = "Unnamed Transaction"
+    var category: FiscalTransactionCategory = FiscalTransactionCategory.other
+    var date: Date = Date.now
     
-    @Relationship(inverse: \Goal.transactions)
-    var goal: Goal
+    @Relationship(inverse: \Goal._transactions)
+    var _goal: Goal?
     
     init(amount: Float, name: String, category: FiscalTransactionCategory, goal: Goal) {
-        self.id = UUID()
         self.amount = amount
         self.name = name
         self.category = category
-        self.date = Date.now
-        self.goal = goal
+        self._goal = goal
+    }
+    
+    public var goal: Goal {
+        return self._goal!
     }
     
 }

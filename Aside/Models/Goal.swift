@@ -14,23 +14,25 @@ import SwiftUI
 @Model
 class Goal: Identifiable {
     
-    var id: UUID
-    var name: String
-    var sfIcon: String
-    var target: Float
+    var id: UUID = UUID()
+    var name: String = "Unnamed Goal"
+    var sfIcon: String = "questionmark.square.dashed"
+    var target: Float = 0.0
     var due: Date?
-    var created: Date
+    var created: Date = Date.now
     
-    @Relationship(deleteRule: .cascade) var transactions: [FiscalTransaction]
+    @Relationship(deleteRule: .cascade, originalName: "transactions") var _transactions: [FiscalTransaction]?
     
     init(name: String, sfIcon: String, target: Float, due: Date? = nil) {
-        self.id = UUID()
         self.name = name
         self.sfIcon = sfIcon
         self.target = target
         self.due = due
-        self.created = Date.now
-        self.transactions = []
+        self._transactions = []
+    }
+    
+    public var transactions: [FiscalTransaction] {
+        return _transactions ?? []
     }
     
     public var saved: Float {
