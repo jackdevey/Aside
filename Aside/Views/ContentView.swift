@@ -73,15 +73,11 @@ struct ContentView: View {
         } detail: {
             // Show the GoalView for the goal
             if let goal = selection {
-                GoalView(goal: goal, deleteFunc: deleteGoal)
+                GoalView(goal: goal)
             } else {
                 VStack {
-                    Image("icon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 50)
-                        .foregroundColor(.accentColor)
-                        .padding()
+                    AppIconView()
+                        .frame(width: 50, height: 50)
                     Group {
                         Text("Welcome to aside")
                             .font(.title)
@@ -107,9 +103,4 @@ struct ContentView: View {
         }
     }
     
-    private func deleteGoal(goal: Goal) {
-        modelContext.delete(goal)
-        try? modelContext.save()
-        selection = nil
-    }
 }

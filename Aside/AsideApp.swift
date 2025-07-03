@@ -11,6 +11,9 @@ import SwiftData
 @main
 struct AsideApp: App {
     
+    // Create the model container once
+    let modelContainer = try! ModelContainer(for: FiscalTransaction.self, Goal.self)
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -18,11 +21,12 @@ struct AsideApp: App {
                 .frame(minWidth: 800, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
             #endif
         }
-        .modelContainer(for: [FiscalTransaction.self, Goal.self])
+        .modelContainer(modelContainer)
         
         #if os(macOS)
         Settings {
             SettingsView()
+                .modelContainer(modelContainer)
         }
         #endif
     }
