@@ -41,21 +41,14 @@ struct SettingsView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
-                Section(header: Text("Export and Delete")) {
+                Section(header: Text("Manage App Data")) {
                     HStack {
                         Text("Export app data as JSON")
                         Spacer()
                         ExportAppDataButton()
                     }
-                    HStack {
-                        Text("Delete all app data")
-                        Spacer()
-                        Button {
-                            
-                        } label: {
-                            Label("Delete", systemImage: "trash")
-                        }
-                    }
+                    Text("All app data can be deleted in the iCloud Storage settings on your device.")
+                        .foregroundStyle(.secondary)
                 }
             }
             .tabItem {
