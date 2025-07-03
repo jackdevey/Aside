@@ -12,7 +12,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class Goal: Identifiable {
+class Goal: Identifiable, Encodable {
     
     var id: UUID = UUID()
     var name: String = "Unnamed Goal"
@@ -23,12 +23,28 @@ class Goal: Identifiable {
     
     @Relationship(deleteRule: .cascade, originalName: "transactions") var _transactions: [FiscalTransaction]?
     
+    // CodingKeys to conform to Codable
+    enum CodingKeys: CodingKey {
+        case id, name, sfIcon, target, due, created, transactions
+    }
+    
     init(name: String, sfIcon: String, target: Float, due: Date? = nil) {
         self.name = name
         self.sfIcon = sfIcon
         self.target = target
         self.due = due
         self._transactions = []
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(sfIcon, forKey: .sfIcon)
+        try container.encode(target, forKey: .target)
+        try container.encode(due, forKey: .due)
+        try container.encode(created, forKey: .created)
+        try container.encode(_transactions, forKey: .transactions)
     }
     
     public var transactions: [FiscalTransaction] {

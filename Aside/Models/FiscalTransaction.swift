@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class FiscalTransaction: Identifiable {
+class FiscalTransaction: Identifiable, Encodable {
     
     var id: UUID = UUID()
     var amount: Float = 0.0
@@ -21,11 +21,26 @@ class FiscalTransaction: Identifiable {
     @Relationship(inverse: \Goal._transactions)
     var _goal: Goal?
     
+    // CodingKeys to conform to Codable
+    enum CodingKeys: CodingKey {
+        case id, amount, name, category, date, goal
+    }
+    
     init(amount: Float, name: String, category: FiscalTransactionCategory, goal: Goal) {
         self.amount = amount
         self.name = name
         self.category = category
         self._goal = goal
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(amount, forKey: .amount)
+        try container.encode(name, forKey: .name)
+        try container.encode(category.rawValue, forKey: .category)
+        try container.encode(date, forKey: .date)
+        // Goal is not encoded
     }
     
     public var goal: Goal {

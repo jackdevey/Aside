@@ -76,12 +76,8 @@ struct ContentView: View {
                 GoalView(goal: goal)
             } else {
                 VStack {
-                    Image("icon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 50)
-                        .foregroundColor(.accentColor)
-                        .padding()
+                    AppIconView()
+                        .frame(width: 50, height: 50)
                     Group {
                         Text("Welcome to aside")
                             .font(.title)

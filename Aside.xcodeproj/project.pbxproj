@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,8 +21,8 @@
 		04312FB3289878A900A5A341 /* AsideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB2289878A900A5A341 /* AsideUITests.swift */; };
 		04312FB5289878A900A5A341 /* AsideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */; };
 		04312FC2289888D400A5A341 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC1289888D400A5A341 /* GoalView.swift */; };
-		04312FCA28988BEE00A5A341 /* Aside.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */; };
 		044D492628997F9E00FBD0AD /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492228997F9E00FBD0AD /* Goal.swift */; };
+		048A92B22E17294B006A0C40 /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A92B12E172949006A0C40 /* AppIconView.swift */; };
 		04DB9BCA289ADD0100E37D52 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB9BC9289ADD0100E37D52 /* Icons.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,10 +62,14 @@
 		04312FB2289878A900A5A341 /* AsideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITests.swift; sourceTree = "<group>"; };
 		04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		04312FC1289888D400A5A341 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
-		04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AsideData.xcdatamodel; sourceTree = "<group>"; };
 		044D492228997F9E00FBD0AD /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		048A92B12E172949006A0C40 /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		04DB9BC9289ADD0100E37D52 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		048A92B42E172E9E006A0C40 /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		04312F90289878A800A5A341 /* Frameworks */ = {
@@ -116,6 +120,7 @@
 		04312F95289878A800A5A341 /* Aside */ = {
 			isa = PBXGroup;
 			children = (
+				048A92B42E172E9E006A0C40 /* Components */,
 				0423CD902E077E7B00FA7F1E /* SettingsManager.swift */,
 				0423CD7B2E070EC500FA7F1E /* Info.plist */,
 				047A2B95289AB580003D22A0 /* Views */,
@@ -125,7 +130,6 @@
 				04312F9A289878A900A5A341 /* Assets.xcassets */,
 				04312F9F289878A900A5A341 /* Aside.entitlements */,
 				04312F9C289878A900A5A341 /* Preview Content */,
-				04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */,
 				04DB9BC9289ADD0100E37D52 /* Icons.swift */,
 			);
 			path = Aside;
@@ -177,6 +181,7 @@
 		047A2B95289AB580003D22A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				048A92B12E172949006A0C40 /* AppIconView.swift */,
 				0423CD922E077E9A00FA7F1E /* SettingsView.swift */,
 				04312F98289878A800A5A341 /* ContentView.swift */,
 				04312FC1289888D400A5A341 /* GoalView.swift */,
@@ -198,6 +203,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				048A92B42E172E9E006A0C40 /* Components */,
 			);
 			name = Aside;
 			productName = Aside;
@@ -322,11 +330,11 @@
 				0423CD7F2E074B8600FA7F1E /* AddEditGoalSheet.swift in Sources */,
 				04312F99289878A800A5A341 /* ContentView.swift in Sources */,
 				044D492628997F9E00FBD0AD /* Goal.swift in Sources */,
+				048A92B22E17294B006A0C40 /* AppIconView.swift in Sources */,
 				04312FC2289888D400A5A341 /* GoalView.swift in Sources */,
 				0423CD912E077E7B00FA7F1E /* SettingsManager.swift in Sources */,
 				04312F97289878A800A5A341 /* AsideApp.swift in Sources */,
 				0423CD812E075AEB00FA7F1E /* AddEditTransactionSheet.swift in Sources */,
-				04312FCA28988BEE00A5A341 /* Aside.xcdatamodeld in Sources */,
 				0423CD932E077E9A00FA7F1E /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,19 +688,6 @@
 			productName = SymbolPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		04312FC828988BEE00A5A341 /* Aside.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */,
-			);
-			currentVersion = 04312FC928988BEE00A5A341 /* AsideData.xcdatamodel */;
-			path = Aside.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 04312F8B289878A800A5A341 /* Project object */;
 }
