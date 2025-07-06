@@ -23,6 +23,8 @@ struct ContentView: View {
     @State var search: String = ""
     
     @State var selection: Goal?
+    
+    @State private var isShowingSettingsSheet: Bool = false
         
     var body: some View {
         NavigationSplitView {
@@ -69,6 +71,16 @@ struct ContentView: View {
                         Label("New goal", systemImage: "plus")
                     }
                 }
+                #if os(iOS)
+                // Settings icon
+                ToolbarItem(placement: .secondaryAction) {
+                    Button {
+                        isShowingSettingsSheet.toggle()
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
+                #endif
             }
         } detail: {
             // Show the GoalView for the goal
@@ -100,6 +112,10 @@ struct ContentView: View {
             #if os(iOS)
                 .presentationDetents([.medium, .large])
             #endif
+        }
+        // Settings sheet
+        .sheet(isPresented: $isShowingSettingsSheet) {
+            SettingsView()
         }
     }
     
