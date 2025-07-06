@@ -17,18 +17,12 @@ jobs:
 
     - name: Run LicensePlist
       run: |
-        cd Tools
-        ./license-plist \
-          --output-path ../Aside/Settings.bundle \
+        ./Tools/license-plist \
+          --output-path Aside/Settings.bundle \
           --force
 
-    - name: Configure Git
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-
     - name: Commit changes
-      run: |
-        git add Aside/Settings.bundle
-        git commit -m "🔒 Update licenses with LicensePlist for ${{ github.event.inputs.version }}" || echo "No changes to commit"
-        git push
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: Aside/Settings.bundle
+        default_author: github_actions
