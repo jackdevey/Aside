@@ -1,5 +1,3 @@
-name: SymbolPicker, nameSpecified: SymbolPicker, owner: xnth97, version: 1.6.2, source: https://github.com/xnth97/SymbolPicker
-
 add-version-numbers: false
 
 LicensePlist Version: 3.27.1
