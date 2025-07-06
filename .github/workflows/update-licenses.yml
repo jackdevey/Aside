@@ -1,0 +1,31 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.0.0)'
+        required: true
+jobs:
+  update-licenses:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Run LicensePlist
+      run: |
+        cd Tools
+        ./license-plist \
+          --output-path ../Aside/Settings.bundle \
+          --force
+
+    - name: Configure Git
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+
+    - name: Commit changes
+      run: |
+        git add YourApp/Settings.bundle
+        git commit -m "🔒 Update licenses with LicensePlist for ${{ github.event.inputs.version }}" || echo "No changes to commit"
+        git push
