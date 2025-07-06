@@ -1,3 +1,5 @@
+name: Prepare for release
+
 on:
   workflow_dispatch:
     inputs:
@@ -6,6 +8,7 @@ on:
         required: true
 jobs:
   update-licenses:
+    name: Update licenses
     runs-on: macos-latest
 
     steps:
@@ -26,6 +29,6 @@ jobs:
 
     - name: Commit changes
       run: |
-        git add YourApp/Settings.bundle
+        git add Aside/Settings.bundle
         git commit -m "🔒 Update licenses with LicensePlist for ${{ github.event.inputs.version }}" || echo "No changes to commit"
         git push
