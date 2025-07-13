@@ -55,7 +55,7 @@ struct GoalView: View {
                     Image(systemName: goal.sfIcon)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 24)
+                        .frame(width: 24, height: 24)
                         .foregroundStyle(.accent)
                     Text(goal.name)
                         .font(.title2)
@@ -77,14 +77,30 @@ struct GoalView: View {
                     }
                 }
                 // Progress view
-                ProgressView(value: goal.saved, total: goal.target) {
-                    Text("\(goal.target - goal.saved, format: .currency(code: settings.currencyCode)) left")
-                    .foregroundStyle(.secondary)
+                ProgressView(value: max(0, min(goal.percentage, 1)), total: 1) {
+                    HStack {
+                        Text("\(max(0, min(goal.percentage, 1)), format: .percent.precision(.fractionLength(0...2))) completed")
+                        // Add an extra amount if over saved
+                        if goal.isOverSaved {
+                            Text("+ \(goal.overSaveAmount, format: .currency(code: settings.currencyCode)) extra")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
                 .padding(.top, 5)
             }
             .padding([.top, .bottom], 5)
-            Section {
+            HStack {
+                Text("Saved")
+                Spacer()
+                Text(goal.saved, format: .currency(code: settings.currencyCode))
+            }
+            HStack {
+                Text("Target")
+                Spacer()
+                Text(goal.target, format: .currency(code: settings.currencyCode))
+            }
+            Section(header: Text("Transactions")) {
                 if goal.transactions.isEmpty {
                     ContentUnavailableView("No transactions",
                         systemImage: "text.insert",
@@ -121,6 +137,7 @@ struct GoalView: View {
                     }
                 }
             }
+            .headerProminence(.increased)
         }
     }
     

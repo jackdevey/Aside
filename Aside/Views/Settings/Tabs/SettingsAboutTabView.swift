@@ -36,6 +36,34 @@ struct SettingsAboutTabView: View {
                 }
             }
             Section(
+                header: Text("External Links")
+            ) {
+                // Contribute on GitHub link
+                Button {
+                    if let url = URL(string: "https://github.com/jackdevey/Aside") {
+                        #if os(iOS)
+                        UIApplication.shared.open(url)
+                        #elseif os(macOS)
+                        NSWorkspace.shared.open(url)
+                        #endif
+                    }
+                } label: {
+                    Label("Contribute on GitHub", systemImage: "arrow.up.forward.square")
+                }
+                // Report an issue
+                Button {
+                    if let url = URL(string: "https://github.com/jackdevey/Aside/issues/new") {
+                        #if os(iOS)
+                        UIApplication.shared.open(url)
+                        #elseif os(macOS)
+                        NSWorkspace.shared.open(url)
+                        #endif
+                    }
+                } label: {
+                    Label("Report an issue", systemImage: "arrow.up.forward.square")
+                }
+            }
+            Section(
                 header: Text("Acknowledgments")
             ) {
                 acknowledgements

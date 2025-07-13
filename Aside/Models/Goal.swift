@@ -62,8 +62,44 @@ class Goal: Identifiable, Encodable {
     }
     
     public var percentage: Float {
-        return (saved / target)
+        return saved / target
     }
+    
+    public var isOverSaved: Bool {
+        return percentage > 1
+    }
+    
+    public var overSaveAmount: Float {
+        return (target - saved) * -1
+    }
+    
+    @ViewBuilder
+    func taglineSaved(currencyCode: String) -> some View {
+        if saved >= 0 {
+            Text("\(saved, format: .currency(code: currencyCode)) saved")
+        } else {
+            Text("\(saved * -1, format: .currency(code: currencyCode)) lost")
+        }
+    }
+    
+    @ViewBuilder
+    func taglineToGo(currencyCode: String) -> some View {
+        if percentage >= 1 {
+            Text("\((target - saved) * -1, format: .currency(code: currencyCode)) over")
+        } else {
+            Text("\(target - saved, format: .currency(code: currencyCode)) to go")
+        }
+    }
+    
+    @ViewBuilder
+    func taglineText(currencyCode: String) -> some View {
+        HStack {
+            taglineSaved(currencyCode: currencyCode)
+            Spacer()
+            taglineToGo(currencyCode: currencyCode)
+        }
+    }
+
     
     @ViewBuilder
     func progressCircle() -> some View {

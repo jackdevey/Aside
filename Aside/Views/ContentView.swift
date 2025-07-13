@@ -52,7 +52,16 @@ struct ContentView: View {
                             Label(goal.name, systemImage: goal.sfIcon)
                             #else
                             HStack(spacing: 20) {
-                                Label(goal.name, systemImage: goal.sfIcon)
+                                Image(systemName: goal.sfIcon)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                    .foregroundStyle(.accent)
+                                VStack(alignment: .leading) {
+                                    Text(goal.name)
+                                    Text("\(max(0, min(goal.percentage, 1)), format: .percent.precision(.fractionLength(0...2))) completed")
+                                        .foregroundStyle(.secondary)
+                                }
                                 Spacer()
                                 goal.progressCircle()
                                     .padding(.trailing, 10)
