@@ -23,6 +23,15 @@ struct SettingsLocalisationTabView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+            Section(header: Text("Language")) {
+                HStack {
+                    Text("Identifier")
+                    Spacer()
+                    Text(Locale.current.identifier)
+                        .monospaced()
+                        .foregroundStyle(.secondary)
+                }
+            }
         }
         .navigationTitle("Localisation")
     }

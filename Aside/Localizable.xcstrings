@@ -1,0 +1,244 @@
+{
+  "sourceLanguage" : "en-GB",
+  "strings" : {
+    " button" : {
+
+    },
+    " icon to create a new goal" : {
+
+    },
+    " icon to create a new transaction for this goal" : {
+
+    },
+    "%@ completed" : {
+
+    },
+    "%@ left" : {
+
+    },
+    "%@ lost" : {
+
+    },
+    "%@ over" : {
+
+    },
+    "%@ saved" : {
+
+    },
+    "%@ to go" : {
+
+    },
+    "+ %@ extra" : {
+
+    },
+    "About" : {
+
+    },
+    "About App" : {
+
+    },
+    "Acknowledgments" : {
+
+    },
+    "All app data can be deleted in the iCloud Storage settings on your device." : {
+
+    },
+    "Amount" : {
+
+    },
+    "App Data" : {
+
+    },
+    "Are you sure you want to delete this goal?" : {
+
+    },
+    "Aside for %@" : {
+
+    },
+    "Bonus" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Cashback" : {
+
+    },
+    "Category" : {
+
+    },
+    "Close" : {
+
+    },
+    "Code" : {
+
+    },
+    "Contribute on GitHub" : {
+
+    },
+    "Create a new goal" : {
+
+    },
+    "Currency" : {
+
+    },
+    "Date" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Due Date" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Edit Transaction" : {
+
+    },
+    "Enabled" : {
+
+    },
+    "Example" : {
+
+    },
+    "Export" : {
+
+    },
+    "Export app data as JSON" : {
+
+    },
+    "External Links" : {
+
+    },
+    "Gift" : {
+
+    },
+    "Goal has a due date" : {
+
+    },
+    "Goals" : {
+
+    },
+    "iCloud Sync" : {
+
+    },
+    "Icon" : {
+
+    },
+    "Icon:" : {
+
+    },
+    "Identifier" : {
+
+    },
+    "Info" : {
+
+    },
+    "Interest" : {
+
+    },
+    "Language" : {
+
+    },
+    "Localisation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localization"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localisation"
+          }
+        }
+      }
+    },
+    "Manage App Data" : {
+
+    },
+    "Name" : {
+
+    },
+    "New goal" : {
+
+    },
+    "New transaction" : {
+
+    },
+    "No goals" : {
+
+    },
+    "No transactions" : {
+
+    },
+    "Options" : {
+
+    },
+    "or select one from the side" : {
+
+    },
+    "Other" : {
+
+    },
+    "Paycheck" : {
+
+    },
+    "Refund" : {
+
+    },
+    "Report an issue" : {
+
+    },
+    "Round-Up" : {
+
+    },
+    "Save" : {
+
+    },
+    "Saved" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Syncing data to iCloud" : {
+
+    },
+    "Tap the " : {
+
+    },
+    "Target" : {
+
+    },
+    "The best way to manage your money!" : {
+
+    },
+    "Transactions" : {
+
+    },
+    "Transfer" : {
+
+    },
+    "Use the " : {
+
+    },
+    "v%@" : {
+
+    },
+    "View in system settings" : {
+
+    },
+    "Welcome to aside" : {
+
+    },
+    "You cannot undo this later, '%@' will be lost forever!" : {
+
+    }
+  },
+  "version" : "1.0"
+}

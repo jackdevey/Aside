@@ -20,6 +20,7 @@
 		04312FB3289878A900A5A341 /* AsideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB2289878A900A5A341 /* AsideUITests.swift */; };
 		04312FB5289878A900A5A341 /* AsideUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */; };
 		04312FC2289888D400A5A341 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04312FC1289888D400A5A341 /* GoalView.swift */; };
+		044A8B6E2E24795C008DF93D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 044A8B6D2E24795C008DF93D /* Localizable.xcstrings */; };
 		044D485E2E1A9A50002BFB17 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 044D485D2E1A9A50002BFB17 /* Settings.bundle */; };
 		044D492628997F9E00FBD0AD /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D492228997F9E00FBD0AD /* Goal.swift */; };
 		04DB9BCA289ADD0100E37D52 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB9BC9289ADD0100E37D52 /* Icons.swift */; };
@@ -60,6 +61,7 @@
 		04312FB2289878A900A5A341 /* AsideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITests.swift; sourceTree = "<group>"; };
 		04312FB4289878A900A5A341 /* AsideUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsideUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		04312FC1289888D400A5A341 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		044A8B6D2E24795C008DF93D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		044D485D2E1A9A50002BFB17 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		044D492228997F9E00FBD0AD /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		04DB9BC9289ADD0100E37D52 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				04312F9C289878A900A5A341 /* Preview Content */,
 				04DB9BC9289ADD0100E37D52 /* Icons.swift */,
 				044D485D2E1A9A50002BFB17 /* Settings.bundle */,
+				044A8B6D2E24795C008DF93D /* Localizable.xcstrings */,
 			);
 			path = Aside;
 			sourceTree = "<group>";
@@ -270,11 +273,12 @@
 			};
 			buildConfigurationList = 04312F8E289878A800A5A341 /* Build configuration list for PBXProject "Aside" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = "en-GB";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"en-GB",
 			);
 			mainGroup = 04312F8A289878A800A5A341;
 			packageReferences = (
@@ -298,6 +302,7 @@
 			files = (
 				04312F9E289878A900A5A341 /* Preview Assets.xcassets in Resources */,
 				044D485E2E1A9A50002BFB17 /* Settings.bundle in Resources */,
+				044A8B6E2E24795C008DF93D /* Localizable.xcstrings in Resources */,
 				04312F9B289878A900A5A341 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +433,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -485,6 +491,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
