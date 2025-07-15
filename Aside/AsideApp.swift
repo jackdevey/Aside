@@ -13,7 +13,7 @@ struct AsideApp: App {
     
     // Create the model container once
     let modelContainer = try! ModelContainer(for: FiscalTransaction.self, Goal.self)
-    
+        
     var body: some Scene {
         WindowGroup {
             ContentView()

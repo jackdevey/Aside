@@ -62,6 +62,18 @@ struct SettingsAboutTabView: View {
                 } label: {
                     Label("Report an issue", systemImage: "arrow.up.forward.square")
                 }
+                // Privacy Policy
+                Button {
+                    if let url = URL(string: "https://aside.jw3.uk/privacy") {
+                        #if os(iOS)
+                        UIApplication.shared.open(url)
+                        #elseif os(macOS)
+                        NSWorkspace.shared.open(url)
+                        #endif
+                    }
+                } label: {
+                    Label("Privacy policy", systemImage: "arrow.up.forward.square")
+                }
             }
             Section(
                 header: Text("Acknowledgments")

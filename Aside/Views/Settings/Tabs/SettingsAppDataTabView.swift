@@ -27,8 +27,11 @@ struct SettingsAppDataTabView: View {
                     Spacer()
                     ExportAppDataButton()
                 }
-                Text("All app data can be deleted in the iCloud Storage settings on your device.")
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text("Delete all app data")
+                    Spacer()
+                    DeleteAppDataButton()
+                }
             }
         }
         .navigationTitle("App Data")

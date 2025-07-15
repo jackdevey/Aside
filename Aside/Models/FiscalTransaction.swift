@@ -85,5 +85,17 @@ enum FiscalTransactionCategory: String, CaseIterable, Identifiable, Codable {
             Label("Other", systemImage: "questionmark.circle.fill")
         }
     }
+}
 
+enum FiscalTransactionSortOption: String, CaseIterable, Identifiable {
+    case date = "Date"
+    case amount = "Amount"
+    case name = "Name"
+    
+    var id: String { self.rawValue }
+    
+    @ViewBuilder
+    func labelView() -> some View {
+        Text(self.rawValue)
+    }
 }

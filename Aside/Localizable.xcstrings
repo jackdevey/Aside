@@ -16,18 +16,6 @@
     "%@ left" : {
 
     },
-    "%@ lost" : {
-
-    },
-    "%@ over" : {
-
-    },
-    "%@ saved" : {
-
-    },
-    "%@ to go" : {
-
-    },
     "+ %@ extra" : {
 
     },
@@ -40,16 +28,19 @@
     "Acknowledgments" : {
 
     },
-    "All app data can be deleted in the iCloud Storage settings on your device." : {
-
-    },
     "Amount" : {
 
     },
     "App Data" : {
 
     },
+    "Are you sure you want to delete all app data?" : {
+
+    },
     "Are you sure you want to delete this goal?" : {
+
+    },
+    "Ascending" : {
 
     },
     "Aside for %@" : {
@@ -86,6 +77,12 @@
 
     },
     "Delete" : {
+
+    },
+    "Delete all app data" : {
+
+    },
+    "Descending" : {
 
     },
     "Due Date" : {
@@ -188,6 +185,9 @@
     "Paycheck" : {
 
     },
+    "Privacy policy" : {
+
+    },
     "Refund" : {
 
     },
@@ -206,6 +206,15 @@
     "Settings" : {
 
     },
+    "Sort" : {
+
+    },
+    "Sort by" : {
+
+    },
+    "Sort order" : {
+
+    },
     "Syncing data to iCloud" : {
 
     },
@@ -216,6 +225,9 @@
 
     },
     "The best way to manage your money!" : {
+
+    },
+    "This action cannot be undone. All your data will be permanently removed." : {
 
     },
     "Transactions" : {
