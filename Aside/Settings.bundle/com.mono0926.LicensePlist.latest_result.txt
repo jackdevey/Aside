@@ -1,3 +1,5 @@
+name: ConfettiSwiftUI, nameSpecified: ConfettiSwiftUI, owner: simibac, version: 2.0.3, source: https://github.com/simibac/ConfettiSwiftUI
+
 name: SymbolPicker, nameSpecified: SymbolPicker, owner: xnth97, version: 1.6.2, source: https://github.com/xnth97/SymbolPicker
 
 add-version-numbers: false
