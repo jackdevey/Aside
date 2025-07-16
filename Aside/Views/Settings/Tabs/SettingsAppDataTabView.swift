@@ -28,7 +28,7 @@ struct SettingsAppDataTabView: View {
                     ExportAppDataButton()
                 }
                 HStack {
-                    Text("Delete all app data")
+                    Text("Delete app data")
                     Spacer()
                     DeleteAppDataButton()
                 }
