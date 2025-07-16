@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct GoalView: View {
     
@@ -34,6 +35,8 @@ struct GoalView: View {
     @State var transactionSortOrder: AsideSortOrder = .descending
     
     @State var showInspector: Bool = true
+    
+    @State private var confettiTrigger: Bool = false
     
     var table: some View {
         Table(goal.transactions.sorted(by: sorter), selection: $transactionSelection) {
@@ -172,6 +175,8 @@ struct GoalView: View {
             }
             #endif
         }
+        // Add confetti cannon
+        .confettiCannon(trigger: $confettiTrigger)
         //.searchable(text: $search, prompt: "Search transactions")
         // Goal delete alert
         .alert(isPresented: $deleteAlert) {
@@ -202,14 +207,24 @@ struct GoalView: View {
         }
         // New transaction sheet
         .sheet(isPresented: $newTransactionSheet) {
-            AddEditTransactionSheet(goal: goal)
+            AddEditTransactionSheet(goal: goal, onSave: { _ in
+                // If goal is now complete, show confetti
+                if (goal.percentage >= 1) {
+                    confettiTrigger.toggle()
+                }
+            })
             #if os(iOS)
                 .presentationDetents([.medium, .large])
             #endif
         }
         // Edit transaction sheet
         .sheet(item: $transactionToEdit) { transaction in
-            AddEditTransactionSheet(goal: goal, transactionToEdit: transaction)
+            AddEditTransactionSheet(goal: goal, transactionToEdit: transaction, onSave: { _ in
+                // If goal is now complete, show confetti
+                if (goal.percentage >= 1) {
+                    confettiTrigger.toggle()
+                }
+            })
             #if os(iOS)
                 .presentationDetents([.medium, .large])
             #endif

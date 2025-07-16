@@ -14,6 +14,7 @@ struct AddEditTransactionSheet: View {
 
     var goal: Goal
     var transactionToEdit: FiscalTransaction?
+    var onSave: ((FiscalTransaction) -> Void)?
 
     @State private var name: String = ""
     @State private var amount: Float = 0.0
@@ -58,6 +59,8 @@ struct AddEditTransactionSheet: View {
                     if let existing = transactionToEdit {
                         existing.name = name
                         existing.amount = amount
+                        // Call on save if exists
+                        onSave?(existing)
                     } else {
                         let transaction = FiscalTransaction(
                             amount: amount,
@@ -68,7 +71,10 @@ struct AddEditTransactionSheet: View {
                         // Insert & save
                         modelContext.insert(transaction)
                         try? modelContext.save()
+                        // Call on save if exists
+                        onSave?(transaction)
                     }
+                    // Call sheet dismiss
                     dismiss()
                 }
                 .disabled(name.isEmpty || amount.isZero)
