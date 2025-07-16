@@ -94,7 +94,7 @@ struct ContentView: View {
         } detail: {
             // Show the GoalView for the goal
             if let goal = selection {
-                GoalView(goal: goal)
+                GoalView(goal: goal, selection: $selection)
             } else {
                 VStack {
                     AppIconView()

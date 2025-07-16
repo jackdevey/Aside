@@ -12,6 +12,8 @@ struct GoalView: View {
     @Environment(\.modelContext) private var modelContext
     
     var goal: Goal
+    @Binding var selection: Goal?
+    
     @State var search: String = ""
     
     @StateObject private var settings = SettingsManager.shared
@@ -181,6 +183,8 @@ struct GoalView: View {
                     action: {
                         modelContext.delete(goal)
                         try? modelContext.save()
+                        // Reset selection
+                        selection = nil 
                     }
                 ),
                 secondaryButton: .cancel(
