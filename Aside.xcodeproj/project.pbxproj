@@ -70,6 +70,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		044D48642E1AA47E002BFB17 /* Settings */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Settings; sourceTree = "<group>"; };
 		04515D9D2E270D8D003D8BEC /* Misc */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Misc; sourceTree = "<group>"; };
+		04515DA12E271FD8003D8BEC /* Goal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Goal; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +185,7 @@
 		047A2B95289AB580003D22A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04515DA12E271FD8003D8BEC /* Goal */,
 				04312FC1289888D400A5A341 /* GoalView.swift */,
 				04312F98289878A800A5A341 /* ContentView.swift */,
 				044D48642E1AA47E002BFB17 /* Settings */,
@@ -209,6 +211,7 @@
 			fileSystemSynchronizedGroups = (
 				044D48642E1AA47E002BFB17 /* Settings */,
 				04515D9D2E270D8D003D8BEC /* Misc */,
+				04515DA12E271FD8003D8BEC /* Goal */,
 			);
 			name = Aside;
 			productName = Aside;

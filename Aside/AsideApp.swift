@@ -18,7 +18,7 @@ struct AsideApp: App {
         WindowGroup {
             ContentView()
             #if os(macOS)
-                .frame(minWidth: 800, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
+                .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 500, maxHeight: .infinity)
             #endif
         }
         .modelContainer(modelContainer)

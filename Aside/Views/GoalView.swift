@@ -18,6 +18,7 @@ struct GoalView: View {
     
     @State private var deleteAlert = false
     @State private var editSheet = false
+    
     @State private var newTransactionSheet = false
     
     @State private var transactionToEdit: FiscalTransaction? = nil
@@ -52,117 +53,16 @@ struct GoalView: View {
         }
         .inspector(isPresented: $showInspector) {
             List {
-                VStack(alignment: .leading) {
-                    // Goal name & icon
-                    HStack {
-                        Image(systemName: goal.sfIcon)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
-                            .foregroundStyle(.accent)
-                        Text(goal.name)
-                            .font(.title2)
-                            .bold()
-                            .lineLimit(1)
-                            .layoutPriority(1)
-                        Spacer()
-                        // Show menu
-                        Menu {
-                            Button(action: { editSheet = true }) {
-                                Label("Edit", systemImage: "square.and.pencil")
-                            }
-                            Button(action: { deleteAlert = true }) {
-                                Label("Delete", systemImage: "trash")
-                            }
-                        } label: {
-                            Label("Options", systemImage: "ellipsis.circle.fill")
-                                .symbolRenderingMode(.hierarchical)
-                                .labelStyle(.iconOnly)
-                                .font(.title2)
-                        }
-                        .fixedSize()
-                    }
-                    // Progress view
-                    ProgressView(value: max(0, min(goal.percentage, 1)), total: 1) {
-                        HStack {
-                            Text("\(max(0, min(goal.percentage, 1)), format: .percent.precision(.fractionLength(0...2))) completed")
-                            // Add an extra amount if over saved
-                            if goal.isOverSaved {
-                                Text("+ \(goal.overSaveAmount, format: .currency(code: settings.currencyCode)) extra")
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    }
-                    .padding(.top, 5)
-                }
-                .padding([.top, .bottom], 5)
-                HStack {
-                    Text("Saved")
-                    Spacer()
-                    Text(goal.saved, format: .currency(code: settings.currencyCode))
-                }
-                HStack {
-                    Text("Target")
-                    Spacer()
-                    Text(goal.target, format: .currency(code: settings.currencyCode))
-                }
+                GoalInfoView(goal: goal, deleteAlert: $deleteAlert, editSheet: $editSheet)
             }
         }
     }
     
     var listWithHeader: some View {
         List {
-            VStack(alignment: .leading) {
-                // Goal name & icon
-                HStack {
-                    Image(systemName: goal.sfIcon)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                        .foregroundStyle(.accent)
-                    Text(goal.name)
-                        .font(.title2)
-                        .bold()
-                    Spacer()
-                    // Show menu
-                    Menu {
-                        Button(action: { editSheet = true }) {
-                            Label("Edit", systemImage: "square.and.pencil")
-                        }
-                        Button(action: { deleteAlert = true }) {
-                            Label("Delete", systemImage: "trash")
-                        }
-                    } label: {
-                        Label("Options", systemImage: "ellipsis.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
-                            .labelStyle(.iconOnly)
-                            .font(.title2)
-                    }
-                }
-                // Progress view
-                ProgressView(value: max(0, min(goal.percentage, 1)), total: 1) {
-                    HStack {
-                        Text("\(max(0, min(goal.percentage, 1)), format: .percent.precision(.fractionLength(0...2))) completed")
-                        // Add an extra amount if over saved
-                        if goal.isOverSaved {
-                            Text("+ \(goal.overSaveAmount, format: .currency(code: settings.currencyCode)) extra")
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
-                .padding(.top, 5)
-            }
-            .padding([.top, .bottom], 5)
-            HStack {
-                Text("Saved")
-                Spacer()
-                Text(goal.saved, format: .currency(code: settings.currencyCode))
-            }
-            HStack {
-                Text("Target")
-                Spacer()
-                Text(goal.target, format: .currency(code: settings.currencyCode))
-            }
+            // Display goal info view first
+            GoalInfoView(goal: goal, deleteAlert: $deleteAlert, editSheet: $editSheet)
+            // Then transactions list
             Section(header: HStack {
                 Text("Transactions")
                     .font(.title3)
@@ -227,6 +127,12 @@ struct GoalView: View {
         #endif
         // Add search through transactions
         .toolbar {
+            // Add transaction button
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: { newTransactionSheet = true }) {
+                    Label("New transaction", systemImage: "text.badge.plus")
+                }
+            }
             #if os(macOS)
             ToolbarItem(placement: .navigation) {
                 HStack(spacing: 10) {
@@ -248,27 +154,19 @@ struct GoalView: View {
                 }
             }
             ToolbarItem(placement: .primaryAction) {
+                Menu {
+                    Button(action: { editSheet = true }) {
+                        Label("Edit", systemImage: "square.and.pencil")
+                    }
+                    Button(action: { deleteAlert = true }) {
+                        Label("Delete", systemImage: "trash")
+                    }
+                } label: {
+                    Label("Options", systemImage: "ellipsis")
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
                 transactionSortSelector
-            }
-            #endif
-            // Add transaction button
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: { newTransactionSheet = true }) {
-                    Label("New transaction", systemImage: "text.badge.plus")
-                }
-            }
-            #if os(macOS)
-            // Edit goal button
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: { editSheet = true }) {
-                    Label("Edit", systemImage: "square.and.pencil")
-                }
-            }
-            // Delete goal button
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: { deleteAlert = true }) {
-                    Label("Delete", systemImage: "trash")
-                }
             }
             #endif
         }
